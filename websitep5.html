@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Category Filter</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    padding:30px;
+}
+
+header{
+    text-align:center;
+    color:white;
+    margin-bottom:30px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+.search-box{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.search-box input{
+    width:60%;
+    max-width:500px;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    color:white;
+}
+
+.stat-card h2{
+    font-size:2rem;
+}
+
+.filter-buttons{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.filter-buttons button{
+    padding:12px 20px;
+    margin:8px;
+    border:none;
+    border-radius:30px;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.filter-buttons button:hover{
+    transform:scale(1.08);
+}
+
+.all{background:#3498db;}
+.technical{background:#e74c3c;}
+.cultural{background:#9b59b6;}
+.sports{background:#27ae60;}
+.workshop{background:#f39c12;}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:25px;
+    overflow:hidden;
+    color:white;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#ffd700;
+    color:black;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.info{
+    margin:8px 0;
+}
+
+.description{
+    margin:12px 0;
+    line-height:1.5;
+}
+
+.register-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#ff6b6b,#ff9f43);
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.register-btn:hover{
+    transform:scale(1.03);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🎯 Event Categories</h1>
+    <p>Explore Events by Category</p>
+</header>
+
+<div class="search-box">
+    <input type="text" id="searchInput"
+    placeholder="🔍 Search Events..."
+    onkeyup="searchEvents()">
+</div>
+
+<div class="stats">
+    <div class="stat-card">
+        <h2>16</h2>
+        <p>Total Events</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>4</h2>
+        <p>Categories</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>500+</h2>
+        <p>Participants</p>
+    </div>
+</div>
+
+<div class="filter-buttons">
+    <button class="all" onclick="filterSelection('all')">All</button>
+    <button class="technical" onclick="filterSelection('Technical')">Technical</button>
+    <button class="cultural" onclick="filterSelection('Cultural')">Cultural</button>
+    <button class="sports" onclick="filterSelection('Sports')">Sports</button>
+    <button class="workshop" onclick="filterSelection('Workshop')">Workshop</button>
+</div>
+
+<div class="container">
+
+<!-- Technical Events -->
+<div class="card filter-item Technical">
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Technical</span>
+<h2>Hackathon 2026</h2>
+<p class="info">📅 15 July 2026</p>
+<p class="description">24-hour coding challenge.</p>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Technical">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Technical</span>
+<h2>Coding Competition</h2>
+<p class="info">📅 18 July 2026</p>
+<p class="description">Programming contest for students.</p>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Technical">
+<img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Technical</span>
+<h2>Robotics Challenge</h2>
+<p class="info">📅 22 July 2026</p>
+<p class="description">Build and showcase robots.</p>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Technical">
+<img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Technical</span>
+<h2>Web Development Workshop</h2>
+<p class="info">📅 25 July 2026</p>
+<p class="description">Learn HTML, CSS and JavaScript.</p>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<!-- Cultural Events -->
+<div class="card filter-item Cultural">
+<img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Cultural</span>
+<h2>Cultural Fest</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Cultural">
+<img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Cultural</span>
+<h2>Dance Competition</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Cultural">
+<img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Cultural</span>
+<h2>Music Night</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Cultural">
+<img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Cultural</span>
+<h2>Drama Competition</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<!-- Sports Events -->
+<div class="card filter-item Sports">
+<img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Sports</span>
+<h2>Sports Meet</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Sports">
+<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Sports</span>
+<h2>Cricket Tournament</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Sports">
+<img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Sports</span>
+<h2>Football Championship</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Sports">
+<img src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Sports</span>
+<h2>Badminton Tournament</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<!-- Workshop Events -->
+<div class="card filter-item Workshop">
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Workshop</span>
+<h2>AI Workshop</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Workshop">
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Workshop</span>
+<h2>Machine Learning Seminar</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Workshop">
+<img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Workshop</span>
+<h2>Cyber Security Workshop</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+<div class="card filter-item Workshop">
+<img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80">
+<div class="card-content">
+<span class="badge">Workshop</span>
+<h2>Cloud Computing Workshop</h2>
+<button class="register-btn">Register Now</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+function filterSelection(category){
+
+let cards=document.querySelectorAll(".filter-item");
+
+cards.forEach(card=>{
+
+if(category==="all"){
+card.style.display="block";
+}
+else if(card.classList.contains(category)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+
+}
+
+function searchEvents(){
+
+let input=document.getElementById("searchInput").value.toLowerCase();
+
+let cards=document.querySelectorAll(".filter-item");
+
+cards.forEach(card=>{
+
+let title=card.querySelector("h2").innerText.toLowerCase();
+
+if(title.includes(input)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

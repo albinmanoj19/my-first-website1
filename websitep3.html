@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Registrations</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    padding:30px;
+}
+
+header{
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-bottom:40px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.stat-card h2{
+    font-size:2.5rem;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    overflow:hidden;
+    color:white;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.event-name{
+    margin-bottom:15px;
+}
+
+.info{
+    margin:8px 0;
+}
+
+.status{
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    border-radius:20px;
+    background:#28a745;
+    color:white;
+}
+
+.btn-group{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.btn{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.view-btn{
+    background:#00c6ff;
+}
+
+.cancel-btn{
+    background:#ff4b5c;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📋 My Registrations</h1>
+    <p>Manage Your Registered Events</p>
+</header>
+
+<div class="stats">
+
+    <div class="stat-card">
+        <h2 id="count">4</h2>
+        <p>Total Registrations</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>₹375</h2>
+        <p>Total Fees Paid</p>
+    </div>
+
+    <div class="stat-card">
+        <h2>2026</h2>
+        <p>Event Season</p>
+    </div>
+
+</div>
+
+<div class="container">
+
+    <!-- Hackathon -->
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80">
+
+        <div class="card-content">
+
+            <h2 class="event-name">Hackathon 2026</h2>
+
+            <p class="info">👤 Name: Albin Manoj</p>
+            <p class="info">📧 Email: albin@example.com</p>
+            <p class="info">📅 15 July 2026</p>
+            <p class="info">📍 College Auditorium</p>
+
+            <span class="status">Registered</span>
+
+            <div class="btn-group">
+
+                <button class="btn view-btn"
+                onclick="viewDetails('Hackathon 2026')">
+                View Details
+                </button>
+
+                <button class="btn cancel-btn"
+                onclick="cancelRegistration(this)">
+                Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Cultural Fest -->
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80">
+
+        <div class="card-content">
+
+            <h2 class="event-name">Cultural Fest</h2>
+
+            <p class="info">👤 Name: Albin Manoj</p>
+            <p class="info">📧 Email: albin@example.com</p>
+            <p class="info">📅 20 July 2026</p>
+            <p class="info">📍 Main Ground</p>
+
+            <span class="status">Registered</span>
+
+            <div class="btn-group">
+
+                <button class="btn view-btn"
+                onclick="viewDetails('Cultural Fest')">
+                View Details
+                </button>
+
+                <button class="btn cancel-btn"
+                onclick="cancelRegistration(this)">
+                Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Sports Meet -->
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80">
+
+        <div class="card-content">
+
+            <h2 class="event-name">Sports Meet</h2>
+
+            <p class="info">👤 Name: Albin Manoj</p>
+            <p class="info">📧 Email: albin@example.com</p>
+            <p class="info">📅 25 July 2026</p>
+            <p class="info">📍 Sports Stadium</p>
+
+            <span class="status">Registered</span>
+
+            <div class="btn-group">
+
+                <button class="btn view-btn"
+                onclick="viewDetails('Sports Meet')">
+                View Details
+                </button>
+
+                <button class="btn cancel-btn"
+                onclick="cancelRegistration(this)">
+                Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- AI Workshop -->
+    <div class="card">
+
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
+
+        <div class="card-content">
+
+            <h2 class="event-name">AI Workshop</h2>
+
+            <p class="info">👤 Name: Albin Manoj</p>
+            <p class="info">📧 Email: albin@example.com</p>
+            <p class="info">📅 30 July 2026</p>
+            <p class="info">📍 Seminar Hall</p>
+
+            <span class="status">Registered</span>
+
+            <div class="btn-group">
+
+                <button class="btn view-btn"
+                onclick="viewDetails('AI Workshop')">
+                View Details
+                </button>
+
+                <button class="btn cancel-btn"
+                onclick="cancelRegistration(this)">
+                Cancel
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function viewDetails(eventName){
+
+    alert(
+        "Registration Details\n\n" +
+        "Event: " + eventName +
+        "\nStatus: Registered" +
+        "\nPayment: Successful"
+    );
+}
+
+function cancelRegistration(button){
+
+    if(confirm("Do you want to cancel this registration?")){
+
+        button.closest(".card").remove();
+
+        let total =
+        document.querySelectorAll(".card").length;
+
+        document.getElementById("count").innerText =
+        total;
+    }
+}
+
+</script>
+
+</body>
+</html>

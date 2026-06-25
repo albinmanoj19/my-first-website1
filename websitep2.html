@@ -1,0 +1,309 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Listing Page</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    padding:30px;
+}
+
+.hero{
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
+
+.container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    transition:0.4s;
+    animation:fadeUp 0.8s ease;
+}
+
+.card:hover{
+    transform:translateY(-15px) scale(1.03);
+}
+
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    color:white;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:20px;
+    background:#ffd700;
+    color:black;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.info{
+    margin:8px 0;
+}
+
+.description{
+    margin:15px 0;
+    line-height:1.6;
+}
+
+.fee{
+    color:#ffd700;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(45deg,#ff6b6b,#ff9f43);
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+}
+
+#registrationSection{
+    display:none;
+    margin-top:50px;
+    background:white;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:25px;
+    border-radius:20px;
+}
+
+#registrationSection h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.submit-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#667eea;
+    color:white;
+    cursor:pointer;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+    <h1>🎉 College Event Registration Portal</h1>
+    <p>Discover and Register for Exciting Events</p>
+</header>
+
+<div class="container">
+
+    <!-- Hackathon -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80">
+        <div class="card-content">
+            <span class="badge">Technical</span>
+            <h2>Hackathon 2026</h2>
+            <p class="info">📅 15 July 2026</p>
+            <p class="info">📍 College Auditorium</p>
+            <p class="description">
+                Participate in a 24-hour coding challenge.
+            </p>
+            <p class="fee">Fee: ₹100</p>
+            <button class="btn" onclick="registerEvent('Hackathon 2026')">
+                Register Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Cultural Fest -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80">
+        <div class="card-content">
+            <span class="badge">Cultural</span>
+            <h2>Cultural Fest</h2>
+            <p class="info">📅 20 July 2026</p>
+            <p class="info">📍 Main Ground</p>
+            <p class="description">
+                Music, dance, drama and cultural performances.
+            </p>
+            <p class="fee">Fee: ₹50</p>
+            <button class="btn" onclick="registerEvent('Cultural Fest')">
+                Register Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Sports Meet -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80">
+        <div class="card-content">
+            <span class="badge">Sports</span>
+            <h2>Sports Meet</h2>
+            <p class="info">📅 25 July 2026</p>
+            <p class="info">📍 Sports Stadium</p>
+            <p class="description">
+                Athletics, football, cricket and indoor games.
+            </p>
+            <p class="fee">Fee: ₹75</p>
+            <button class="btn" onclick="registerEvent('Sports Meet')">
+                Register Now
+            </button>
+        </div>
+    </div>
+
+    <!-- AI Workshop -->
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
+        <div class="card-content">
+            <span class="badge">Workshop</span>
+            <h2>AI Workshop</h2>
+            <p class="info">📅 30 July 2026</p>
+            <p class="info">📍 Seminar Hall</p>
+            <p class="description">
+                Learn AI, Machine Learning and future technologies.
+            </p>
+            <p class="fee">Fee: ₹150</p>
+            <button class="btn" onclick="registerEvent('AI Workshop')">
+                Register Now
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<div id="registrationSection">
+
+    <h2>Event Registration Form</h2>
+
+    <form id="registrationForm">
+
+        <input type="text"
+               placeholder="Full Name"
+               required>
+
+        <input type="email"
+               placeholder="Email Address"
+               required>
+
+        <input type="tel"
+               placeholder="Phone Number"
+               required>
+
+        <input type="text"
+               id="selectedEvent"
+               readonly>
+
+        <button type="submit"
+                class="submit-btn">
+            Submit Registration
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+function registerEvent(eventName){
+
+    document.getElementById("registrationSection")
+            .style.display="block";
+
+    document.getElementById("selectedEvent")
+            .value=eventName;
+
+    document.getElementById("registrationSection")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
+}
+
+document.getElementById("registrationForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    alert(
+        "Registration Successful for " +
+        document.getElementById("selectedEvent").value
+    );
+
+    this.reset();
+
+    document.getElementById("registrationSection")
+            .style.display="none";
+});
+
+</script>
+
+</body>
+</html>
+```

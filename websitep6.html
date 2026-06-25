@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upcoming Events & Gallery</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    padding:30px;
+}
+
+header{
+    text-align:center;
+    color:white;
+    margin-bottom:40px;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+    font-size:1.2rem;
+}
+
+.section-title{
+    color:white;
+    text-align:center;
+    margin:40px 0 25px;
+    font-size:2rem;
+}
+
+.countdown-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.countdown-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    padding:25px;
+    color:white;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.countdown-card h2{
+    margin-bottom:15px;
+}
+
+.timer{
+    font-size:1.4rem;
+    font-weight:bold;
+    color:#ffd700;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:0.4s;
+    box-shadow:0 10px 20px rgba(0,0,0,0.25);
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+.footer{
+    text-align:center;
+    color:white;
+    margin-top:40px;
+    font-size:1rem;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h1>🎉 Upcoming Events</h1>
+    <p>Countdown Timer & Event Gallery</p>
+</header>
+
+<h2 class="section-title">⏳ Event Countdown</h2>
+
+<div class="countdown-container">
+
+    <div class="countdown-card">
+        <h2>💻 Hackathon 2026</h2>
+        <p>15 July 2027</p>
+        <div class="timer" id="timer1"></div>
+    </div>
+
+    <div class="countdown-card">
+        <h2>🎭 Cultural Fest</h2>
+        <p>20 July 2027</p>
+        <div class="timer" id="timer2"></div>
+    </div>
+
+    <div class="countdown-card">
+        <h2>🏆 Sports Meet</h2>
+        <p>25 July 2027</p>
+        <div class="timer" id="timer3"></div>
+    </div>
+
+    <div class="countdown-card">
+        <h2>🤖 AI Workshop</h2>
+        <p>30 July 2027</p>
+        <div class="timer" id="timer4"></div>
+    </div>
+
+</div>
+
+<h2 class="section-title">🖼️ Event Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+<div class="footer">
+    <p>© 2026 Event Registration Portal</p>
+</div>
+
+<script>
+
+function countdown(targetDate,id){
+
+const countDate=new Date(targetDate).getTime();
+
+setInterval(function(){
+
+const now=new Date().getTime();
+
+const gap=countDate-now;
+
+const day=Math.floor(gap/(1000*60*60*24));
+const hour=Math.floor((gap%(1000*60*60*24))/(1000*60*60));
+const minute=Math.floor((gap%(1000*60*60))/60000);
+const second=Math.floor((gap%(1000*60))/1000);
+
+document.getElementById(id).innerHTML=
+day+" Days "+
+hour+" Hrs "+
+minute+" Min "+
+second+" Sec";
+
+},1000);
+
+}
+
+countdown("July 15, 2027 09:00:00","timer1");
+countdown("July 20, 2027 09:00:00","timer2");
+countdown("July 25, 2027 09:00:00","timer3");
+countdown("July 30, 2027 09:00:00","timer4");
+
+</script>
+
+</body>
+</html>
